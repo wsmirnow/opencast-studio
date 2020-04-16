@@ -314,6 +314,10 @@ const UploadForm = ({ opencast, uploadState, recordings, handleUpload }) => {
   return (
     <React.Fragment>
       <FormField label={t('save-creation-label-title')}>
+        <Text sx={{
+          fontWeight: 100,
+          paddingBottom: '4px'
+        }}>{t('save-creation-label-title-text')}</Text>
         <Input
           name="title"
           autoComplete="off"
@@ -323,6 +327,10 @@ const UploadForm = ({ opencast, uploadState, recordings, handleUpload }) => {
       </FormField>
 
       <FormField label={t('save-creation-label-presenter')}>
+        <Text sx={{
+          fontWeight: 100,
+          paddingBottom: '4px'
+        }}>{t('save-creation-label-presenter-text')}</Text>
         <Input
           name="presenter"
           autoComplete="off"
@@ -411,7 +419,13 @@ const UploadSuccess = () => {
         <FontAwesomeIcon icon={faCheckCircle} size="4x" />
       </div>
       <Text variant='text' sx={{ textAlign: 'center' }}>{t('message-upload-complete')}</Text>
-      <Text sx={{ textAlign: 'center', mt: 2 }}>{t('message-upload-complete-explanation')}</Text>
+      <Trans i18nKey="message-upload-complete-explanation">
+        Your recording will be processed and published to
+        <a href="https://video.ethz.ch/lectures.html">{{link: 'video.ethz.ch/lectures.html'}}</a> according to metadata provided
+        (department, course catalogue number). If you want to dist ribute
+        recordings yourself, please download media and upload them to your
+        Polybox.
+      </Trans>
     </React.Fragment>
   );
 }
