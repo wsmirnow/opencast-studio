@@ -34,6 +34,16 @@ cd build
 tar -czf ../$FILENAME *
 cd ..
 
+# Build sbox version
+rm -rf build/
+export PUBLIC_URL=/sbox
+export REACT_APP_SETTINGS_PATH="/sbox/settings.json"
+npm run build
+
+FILENAME="oc-studio-$(date --utc +%F)-sbox.tar.gz"
+cd build
+tar -czf ../$FILENAME *
+cd ..
 
 # Delete our temporary folder at the end
 rm -rf build/
